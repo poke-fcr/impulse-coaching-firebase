@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,7 @@ import com.impulse.classes.service.service.BatchService;
 
 @RestController
 @RequestMapping("/batch")
+@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
 public class BatchController {
 
 	@Autowired
