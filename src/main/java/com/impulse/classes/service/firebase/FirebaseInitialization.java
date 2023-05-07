@@ -24,9 +24,10 @@ public class FirebaseInitialization {
 	public void initializaFirebase() {
 
 		try {
-			File file = ResourceUtils.getFile("classpath:serviceAccountKey.json");
+//			File file = ResourceUtils.getFile("classpath:serviceAccountKey.json");
+			InputStream serviceAccount = this.getClass().getResourceAsStream("/serviceAccountKey.json");
 //			FileInputStream serviceAccount = new FileInputStream("/serviceAccountKey.json");
-			FileInputStream serviceAccount = new FileInputStream(file);
+//			FileInputStream serviceAccount = new FileInputStream(file);
 			FirebaseOptions options = new FirebaseOptions.Builder()
 					.setCredentials(GoogleCredentials.fromStream(serviceAccount))
 					.setDatabaseUrl("https://mysql-6ebe8-default-rtdb.asia-southeast1.firebasedatabase.app").build();
