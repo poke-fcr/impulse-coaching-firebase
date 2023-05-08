@@ -16,7 +16,7 @@ import com.impulse.classes.service.service.BatchService;
 
 @RestController
 @RequestMapping("/batch")
-@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
+@CrossOrigin(origins =  {"http://localhost:4200", "https://impulse-coaching.web.app"}, allowedHeaders = "*")
 public class BatchController {
 
 	@Autowired
