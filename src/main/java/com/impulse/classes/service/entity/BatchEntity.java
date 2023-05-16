@@ -6,7 +6,7 @@ public class BatchEntity {
 
 	private String batchId;
 	private String batchName;
-	private WeekDay weekDay;
+	private List<WeekDay> weekDay;
 	public String getBatchId() {
 		return batchId;
 	}
@@ -19,13 +19,13 @@ public class BatchEntity {
 	public void setBatchName(String batchName) {
 		this.batchName = batchName;
 	}
-	public WeekDay getWeekDay() {
+	public List<WeekDay> getWeekDay() {
 		return weekDay;
 	}
-	public void setWeekDay(WeekDay weekDay) {
+	public void setWeekDay(List<WeekDay> weekDay) {
 		this.weekDay = weekDay;
 	}
-	public BatchEntity(String batchId, String batchName, WeekDay weekDay) {
+	public BatchEntity(String batchId, String batchName, List<WeekDay> weekDay) {
 		super();
 		this.batchId = batchId;
 		this.batchName = batchName;
@@ -33,7 +33,9 @@ public class BatchEntity {
 	}
 	public BatchEntity() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
+	
 	
 	
 
