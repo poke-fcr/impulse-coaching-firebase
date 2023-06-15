@@ -1,6 +1,7 @@
 package com.impulse.classes.service.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -12,15 +13,25 @@ import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.firebase.cloud.FirestoreClient;
 import com.impulse.classes.service.entity.BatchEntity;
-
+import java.util.*;
 @Service
 public class BatchService {
 	private static final String COLLECTION_NAME = "batches";
 
-	public String saveBatch(BatchEntity batchEntity) {
+	public Map<String, String> saveBatch(BatchEntity batchEntity) {
 		Firestore dbFireStore = FirestoreClient.getFirestore();
 		dbFireStore.collection(COLLECTION_NAME).document(batchEntity.getBatchId()).set(batchEntity);
-		return "Successful";
+		 HashMap<String, String> map = new HashMap<>();
+		map.put("status", "successful");
+		return map;
+	}
+	
+	public Map<String, String> deleteBatch(String batchId) {
+		Firestore db = FirestoreClient.getFirestore();
+		db.collection(COLLECTION_NAME).document(batchId).delete();
+		 HashMap<String, String> map = new HashMap<>();
+		    map.put("status", "successful");
+		return map;
 	}
 
 	public List<BatchEntity> getAllBatches() {
